@@ -1,5 +1,4 @@
 require 'yaml'
-require "pry"
 
 def load_library(file_path)
   definitions = {
@@ -14,27 +13,21 @@ def load_library(file_path)
     definitions["get_emoticon"][emoticons[0]] = emoticons[1]
   end
 
-  #binding.pry
   definitions
 end
 
 def get_japanese_emoticon(file_path, emoticon)
 
   definitions = load_library(file_path)
-  #binding.pry
 
   if definitions['get_emoticon'].has_key?(emoticon)
     definitions['get_emoticon'].fetch(emoticon)
   else
     'Sorry, that emoticon was not found'
   end
-
-  # code goes here
 end
 
 def get_english_meaning(file_path, emoticon)
-  # code goes here
-
   definitions = load_library(file_path)
 
   if definitions['get_meaning'].has_key?(emoticon)
